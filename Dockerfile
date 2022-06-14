@@ -1,12 +1,16 @@
- FROM python:3.8-slim-buster
- RUN apt-get update
- RUN apt-get install nano
- 
- RUN mkdir wd
- WORKDIR wd
- COPY app/requirements.txt .
- RUN pip3 install -r requirements.txt
-  
- COPY app/ ./
-  
- CMD [ "gunicorn", "--workers=5", "--threads=1", "-b 0.0.0.0:80", "app:server"]
+FROM python:3.8-slim
+
+WORKDIR /code
+
+COPY requirements.txt /
+
+RUN pip install -r /requirements.txt \
+	&& rm -rf /root/.cache
+
+COPY ./ ./
+
+ENV ENVIRONMENT_FILE=".env"
+
+EXPOSE 8085
+
+ENTRYPOINT ["gunicorn", "--config", "gunicorn_config.py", "index:server"]
