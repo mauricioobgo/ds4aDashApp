@@ -1,16 +1,13 @@
- version: '3.7'
- services:
-   dashboard:
-     build: 
-       context: ./
-     container_name: "${COMPOSE_PROJECT_NAME}_dashboard"   
-     hostname: "${COMPOSE_PROJECT_NAME}_dashboard"
-     restart: always
-     ports:
-       - 5000:80
-     networks:
-       - network 
-    
- networks:
-   network:
-     driver: bridge
+version: "3.7"
+
+services:
+  clean-dash:
+    build:
+      context: .
+    image: clean-dash:latest
+    container_name: clean-dash
+    ports:
+      - "8084:8085"
+    environment:
+      - TARGET=latest
+    restart: unless-stopped
