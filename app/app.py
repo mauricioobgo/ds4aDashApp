@@ -13,10 +13,10 @@ app = dash.Dash(server=server, external_stylesheets=[dbc.themes.FLATLY])
 app.title = 'Dashboard'
 
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/gapminderDataFiveYear.csv')
-
+print("hello")
 app.layout = dbc.Container([ 
 
-    dbc.Row(dbc.Col(html.H2("Your Amazing Dashboard"), width={'size': 12, 'offset': 0, 'order': 0}), style = {'textAlign': 'center', 'paddingBottom': '1%'}),
+    dbc.Row(dbc.Col(html.H2("Your Dashboard new site"), width={'size': 12, 'offset': 0, 'order': 0}), style = {'textAlign': 'center', 'paddingBottom': '1%'}),
 
     dbc.Row(dbc.Col(dcc.Loading(children=[dcc.Graph(id ='your-graph'),
                                         dcc.Slider(id='year-slider',
