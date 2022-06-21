@@ -5,7 +5,7 @@ from pages.gdp.gdp_data import dataframe
 
 
 layout = html.Div([
-    html.H1("GDP viewer"),
+    html.H1("EXPLORATORY DATA ANALYSIS"),
     html.Hr(),
     dcc.Graph(id='graph-with-slider'),
     dcc.Slider(
