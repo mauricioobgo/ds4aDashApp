@@ -12,7 +12,7 @@ phases:
     commands:
       - echo setting up env variables
       - ls
-      - ./environment/env
+      - environment/env
       - export ECR_REPO=${ECR_BASE}${PROJECT_REPO}
       - echo logging in to Project AWS ECR...
       - aws --region ${AWS_DEFAULT_REGION} ecr get-login-password | docker login --password-stdin --username AWS "${ECR_BASE}"
