@@ -11,11 +11,12 @@ phases:
   pre_build:
     commands:
       - echo setting up env variables
+      - ls
       - environments/env
       - export ECR_REPO=${ECR_BASE}${PROJECT_REPO}
       - echo logging in to Project AWS ECR...
       - aws --region ${AWS_DEFAULT_REGION} ecr get-login-password | docker login --password-stdin --username AWS "${ECR_BASE}"
-      - echo logging into ${ENVIRONMENT}
+      - echo logging into ${ECR_REPO}
   build:
     commands:
       - echo ------------CREATING IMAGE---------------------
