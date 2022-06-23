@@ -1,0 +1,31 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.9
+    commands:
+      - echo starting build
+      - export STARTINGPOINT=$(pwd)
+      - echo $STARTINGPOINT
+      - pip install awscli pyyaml
+  pre_build:
+    commands:
+      - echo setting up env variables
+      - . ./environments/env
+      - export ECR_REPO=${ECR_BASE}${PROJECT_REPO}
+      - echo logging in to Project AWS ECR...
+      - aws --region ${AWS_DEFAULT_REGION} ecr get-login-password | docker login --password-stdin --username AWS "${ECR_BASE}"
+      - echo logging into ${ENVIRONMENT}
+  build:
+    commands:
+      - echo ------------CREATING IMAGE---------------------
+      - echo swapping current image from release to rollback
+      - docker pull ${ECR_REPO}:${PROJECT_NAME}_release || true 
+      - docker tag ${ECR_REPO}:${PROJECT_NAME}_release ${ECR_REPO}:${PROJECT_NAME}_rollback || true
+      - echo this is an image creation
+      - docker build -t ${ECR_REPO}:${PROJECT_NAME}-${VERSION} -t ${ECR_REPO}:${PROJECT_NAME}_release --build-arg ENV_CONTAINER=$ENV_CONTAINER .
+      - docker push ${ECR_REPO}:${PROJECT_NAME}-${VERSION}
+      - docker push ${ECR_REPO}:${PROJECT_NAME}_release
+      - docker push ${ECR_REPO}:${PROJECT_NAME}_rollback || true
+      - echo created image
+
