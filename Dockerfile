@@ -1,4 +1,5 @@
-FROM python:3.8-slim
+ARG ENV_CONTAINER
+FROM $ENV_CONTAINER
 
 WORKDIR /code
 
