@@ -11,6 +11,7 @@ phases:
   pre_build:
     commands:
       - echo setting up env variables
+      - chmod 755 ./environment/env
       - ./environment/env
       - export ECR_REPO=${ECR_BASE}${PROJECT_REPO}
       - echo logging in to Project AWS ECR...
