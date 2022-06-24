@@ -17,7 +17,7 @@ phases:
       - pip install awscli pyyaml
   pre_build:
     commands:
-      - echo setting up env variables
+      - echo starting process
       - export ECR_REPO=${ECR_BASE}${PROJECT_REPO}
       - echo $ECR_REPO
       - echo logging in to Project AWS ECR...
