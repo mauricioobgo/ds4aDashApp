@@ -1,4 +1,10 @@
 version: 0.2
+env:
+  ECR_BASE: 241078504042.dkr.ecr.us-east-1.amazonaws.com
+  PROJECT_NAME: ds4a-dash-app
+  PROJECT_REPO: ds4a-run-dash
+  VERSION: 0.0.2
+  ENV_CONTAINER: 241078504042.dkr.ecr.us-east-1.amazonaws.com/base-images
 phases:
   install:
     runtime-versions:
@@ -11,8 +17,6 @@ phases:
   pre_build:
     commands:
       - echo setting up env variables
-      - chmod 755 ./environment/env
-      - export $(cut -d= -f1  ./environment/env)
       - export ECR_REPO=${ECR_BASE}${PROJECT_REPO}
       - echo $ECR_REPO
       - echo logging in to Project AWS ECR...
