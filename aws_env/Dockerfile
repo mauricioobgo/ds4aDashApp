@@ -11,6 +11,5 @@ COPY ./ ./
 
 ENV ENVIRONMENT_FILE=".env"
 
-EXPOSE 8050
 
-ENTRYPOINT ["gunicorn", "--config", "gunicorn_config.py", "index:server"]
+ENTRYPOINT ["gunicorn", "--workers=5", "--threads=1", "-b 0.0.0.0:80", "index:server"]
