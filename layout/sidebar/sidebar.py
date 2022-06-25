@@ -45,8 +45,7 @@ sidebar_header = dbc.Row(
             # vertically align the toggle in the center
             align="center",
             
-        ),
-         dbc.Col(html.Img(src=PLOTLY_LOGO, style={"width": "10rem"})),   
+        ),         
     ]
 
 )
@@ -66,23 +65,15 @@ sidebar = html.Div(
                 ),
             ],
             id="blurb",
-        ),
-
+        ),        
            
         # use the Collapse component to animate hiding / revealing links
         dbc.Collapse(
-            dbc.NavLink(
-                    [
-                        html.I(className="fas fa-calendar-alt me-2"),
-                        html.Span("EDA"),
-                    ],
-                    href=gdp_page_location,
-                    active="exact",
-           ),
+           
             dbc.Nav(
                 [
                     dbc.NavLink("INTRO", href=home_page_location, active="exact"),
-                    dbc.NavLink("EVA", href=gdp_page_location, active="exact"),
+                    dbc.NavLink("EDA", href=gdp_page_location, active="exact"),
                     dbc.NavLink("FORECAST", href=iris_page_location, active="exact"),
                 ],
                 vertical=True,
