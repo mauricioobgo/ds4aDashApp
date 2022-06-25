@@ -26,7 +26,7 @@ phases:
       - cp -R ../components components
       - cp -R ../environment environment
       - cp -R ../layout layout
-      - cp -R ../pagest pagest
+      - cp -R ../pages pages
       - cp -R ../utils utils
       - cp ../app.py app.py
       - cp ../gunicorn_config.py gunicorn_config.py
