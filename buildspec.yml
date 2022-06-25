@@ -34,6 +34,7 @@ phases:
       - cp ../requirements.txt requirements.txt 
       - cp ../routes.py routes.py     
       - echo logging in to Project AWS ECR...
+      - ls
       - aws --region ${AWS_DEFAULT_REGION} ecr get-login-password | docker login --password-stdin --username AWS "${ECR_BASE}"
       - echo logging into ${ECR_REPO}
   build:
