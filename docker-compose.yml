@@ -7,7 +7,7 @@ services:
     image: clean-dash:latest
     container_name: clean-dash
     ports:
-      - "8085"
+      - "8084:8085"
     environment:
       - TARGET=latest
     restart: unless-stopped
