@@ -10,6 +10,6 @@ COPY ./ ./
 
 ENV ENVIRONMENT_FILE=".env"
 
-EXPOSE 8084
+EXPOSE 8085
 
 ENTRYPOINT ["gunicorn", "--config", "gunicorn_config.py", "index:server"]
