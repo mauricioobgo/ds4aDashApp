@@ -1,5 +1,7 @@
 import dash_html_components as html
 import dash_bootstrap_components as dbc
+from pages.header import *
+
 danny = dbc.Card(
     [
         dbc.CardImg(src="https://i.postimg.cc/yx5Qnr2j/DANNY-SANCHEZ-min.jpg",  top=True),
@@ -194,16 +196,10 @@ the_team = dbc.Card(
 
 
 
-layout = html.Div(
+layout = dbc.Container(    
     [
-        dbc.Row(
-            [
-                dbc.Col(html.Img(src="https://i.postimg.cc/3rSvzYJv/Recurso-alta-1.png", style={"width": "10rem"})),
-                dbc.Col(html.H2("DS4A FINAL PROJECT TITLE"), style={"width": "auto"}),
-                dbc.Col(html.Img(src="https://i.postimg.cc/V69MpLbk/Simple-Badge-Agriculture-Farm-Circle-Logo-1.png", style={"width": "5rem"})),
-            ]
-        ),
-
+        header,
+        html.Hr(),
         dbc.Row(dbc.Col(the_project, width="auto"),className="mt-4"),
         dbc.Row(dbc.Col(the_sources, width="auto"),className="mt-4"),
         dbc.Row(dbc.Col(the_team, width="auto"),className="mt-4"),       
@@ -222,7 +218,8 @@ layout = html.Div(
                 dbc.Col(nicolas, width="auto"),
             ],className="mt-4"
         ),
-
-    ]
-),
+        
+    ],
+    fluid=True,
+)
         

@@ -2,7 +2,7 @@
 import dash_bootstrap_components as dbc
 import dash_html_components as html
 
-from utils.constants import home_page_location, gdp_page_location, iris_page_location
+from utils.constants import home_page_location, forecast_page_location, eda_page_location
 
 PLOTLY_LOGO = "https://i.postimg.cc/hPMpyfXR/Recurso-alta-4.png"
 
@@ -72,9 +72,9 @@ sidebar = html.Div(
            
             dbc.Nav(
                 [
-                    dbc.NavLink("INTRO", href=home_page_location, active="exact"),
-                    dbc.NavLink("EDA", href=gdp_page_location, active="exact"),
-                    dbc.NavLink("FORECAST", href=iris_page_location, active="exact"),
+                    dbc.NavLink("HOME", href=home_page_location, active="exact"),
+                    dbc.NavLink("EDA", href=eda_page_location, active="exact"),
+                    dbc.NavLink("FORECAST", href=forecast_page_location, active="exact"),
                 ],
                 vertical=True,
                 pills=True,
