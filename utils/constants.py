@@ -1,5 +1,5 @@
 home_page_location = "/"
-gdp_page_location = "/gdp"
-iris_page_location = "/iris"
+forecast_page_location = "/forecast"
+eda_page_location = "/eda"
 
 TIMEOUT = 60
