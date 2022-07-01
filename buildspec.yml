@@ -4,7 +4,7 @@ env:
     ECR_BASE: 241078504042.dkr.ecr.us-east-1.amazonaws.com
     PROJECT_NAME: ds4a-dash-app
     PROJECT_REPO: /ds4a-run-dash
-    VERSION: 0.0.2
+    VERSION: 0.0.3
     ENV_CONTAINER: 241078504042.dkr.ecr.us-east-1.amazonaws.com/base-images:latest
 phases:
   install:
@@ -29,7 +29,9 @@ phases:
       - cp -R ../pages pages
       - cp -R ../utils utils
       - cp ../requirements.txt requirements.txt 
-      - cp ../routes.py routes.py     
+      - cp ../routes.py routes.py   
+      - cp ../index.py index.py  
+      - cp ../app.py app.py        
       - echo logging in to Project AWS ECR...
       - aws --region ${AWS_DEFAULT_REGION} ecr get-login-password | docker login --password-stdin --username AWS "${ECR_BASE}"
       - echo logging into ${ECR_REPO}
