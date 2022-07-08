@@ -30,17 +30,17 @@ models_list= ["area_harvested_model", "production_model", "yield_model"]
     Input('radioitems-inline-input', 'value')
     )
 def update_figure(departamento,hectareas,modelo):
-    models= models_list[modelo]
+    models= models_list[0]
     prediction=models_selector.predict_groups(hectareas, departamento, models).head(10)
     return make_dash_table(prediction)
 
-@app.callback(
-    Output('table_manager', 'Children'),
-    Input('dropdown_groups', 'value'),
-    Input('input_hect', 'value'),
-    Input('radioitems-inline-input', 'value')
-    )
-def update_figure(group,hectareas,modelo):
-    models= models_list[modelo]
-    prediction=models_selector.predict_groups(hectareas, group, models).head(10)
-    return make_dash_table(prediction)
+# @app.callback(
+#     Output('table_manager', 'Children'),
+#     Input('dropdown_groups', 'value'),
+#     Input('input_hect', 'value'),
+#     Input('radioitems-inline-input', 'value')
+#     )
+# def update_figure(group,hectareas,modelo):
+#     models= models_list[modelo]
+#     prediction=models_selector.predict_groups(hectareas, group, models).head(10)
+#     return make_dash_table(prediction)

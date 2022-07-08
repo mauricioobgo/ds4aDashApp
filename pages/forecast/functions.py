@@ -5,8 +5,8 @@ warnings.filterwarnings('ignore')
 
 #reading the models
 area_harvested_model = pickle.load(open('data/area_harvested_model.pickle', 'rb'))
-production_model = pickle.load(open('data/production_model.pickle', 'rb'))
-yield_model = pickle.load(open('data/yield_model.pickle', 'rb'))
+#production_model = pickle.load(open('data/production_model.pickle', 'rb'))
+#yield_model = pickle.load(open('data/yield_model.pickle', 'rb'))
 
 #forecasts
 depts = ['code', 'amazonas', 'antioquia', 'arauca', 'atlantico', 'bolivar', 'boyaca', 'caldas', 'caqueta', 'casanare', 'cauca', 'cesar', 'choco', 'cordoba',
