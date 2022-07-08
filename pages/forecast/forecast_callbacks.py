@@ -4,7 +4,7 @@ import pages.forecast.functions as models_selector
 import plotly.express as px
 from pages.eda.eda_data import load_depanum,load_years,load_cultivos,load_process_data,load_municipios,convert_to_list
 from app import app
-from pages.forecast.forecast_data import dataframe
+#from pages.forecast.forecast_data import dataframe
 from components.table import make_dash_table
 
 models_list= ["area_harvested_model", "production_model", "yield_model"]
